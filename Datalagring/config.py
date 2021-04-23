@@ -1,0 +1,2 @@
+transaktioner = []
+filename = "transactions.txt"
