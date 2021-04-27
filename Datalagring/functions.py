@@ -7,7 +7,7 @@ def balans():
     :return: saldot
     """  
     balans = 0
-    for t in transaktioner:
+    for t in transactions:
         balans += t
     return balans
 
@@ -27,7 +27,7 @@ def print_transactions():
     output = ("\nAlla transaktioner:"
             "\n{:>3} {:>12} {:>12}"
             "\n______________________________").format("Nr", "Händelse", "Saldo")
-    for t in transaktioner:
+    for t in transactions:
         line += 1
         balans += t
         output += ("\n{:>2}. {:>9} {:>9} kr".format(line, t, balans))
@@ -60,4 +60,15 @@ def read_file():
     with open(filename) as f:
         for rad in f:
             if len(rad) > 0:
-                transaktioner.append(int(rad))
+                transactions.append(int(rad))
+
+
+def add_transaction(transaction):
+    """ Lagrar transaktion i transaktionslistan och till filen
+
+    :param transacion: transaktionen
+    :return: None
+    """
+    transactions.append(transaction)
+    with open(filename, "a") as f:
+        f.write("{}\n".format(transaction))
