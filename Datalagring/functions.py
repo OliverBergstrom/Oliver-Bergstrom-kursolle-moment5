@@ -56,6 +56,7 @@ def read_file():
     
     :return: none
     """
+    check_file_exists()
 
     with open(filename) as f:
         for rad in f:
