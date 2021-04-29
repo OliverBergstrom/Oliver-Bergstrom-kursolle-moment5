@@ -61,15 +61,27 @@ def read_file():
     with open(filename) as f:
         for rad in f:
             if len(rad) > 0:
-                transactions.append(int(rad))
+                add_transaction(int(rad))
 
 
-def add_transaction(transaction):
+def add_transaction(transaction, toFile = False):
     """ Lagrar transaktion i transaktionslistan och till filen
 
-    :param transacion: transaktionen
+    :param transaction: transaktionen
+    :param toFile: True - lagra också till filen, False är förvalt
     :return: None
     """
     transactions.append(transaction)
+    if toFile:
+        write_transaction_to_file(transaction)
+
+    
+def write_transaction_to_file(transaction):
+    """ Skriver en transaktion till filen 
+    
+    :param transaction: transaktionen
+    :return: None
+    """
+
     with open(filename, "a") as f:
         f.write("{}\n".format(transaction))
