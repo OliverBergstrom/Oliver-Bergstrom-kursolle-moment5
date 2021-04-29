@@ -12,6 +12,13 @@ def balans():
     return balans
 
 def validate_int(output, error_mess):
+    """ Validerar inmatat värde
+    
+    :param output: Text som skrivs till användaren
+    :param error_mess: Text som skrivs om inmatningen är felaktig
+    :return: validerat värde
+    """
+
     while True:
         try:
             value = int(input(output))
@@ -21,6 +28,10 @@ def validate_int(output, error_mess):
     return value
 
 def print_transactions():
+    """ Skapar utskrift av alla transaktioner
+    
+    :return: sträng med hela utskriften
+    """
 
     line = 0
     balans = 0

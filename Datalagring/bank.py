@@ -1,6 +1,6 @@
 from functions import *
-read_file() 
-check_file_exists()
+read_file()                         # Läser in och/eller skapar fil med transaktioner
+
 
 
 while True:
